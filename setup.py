@@ -13,11 +13,11 @@ def parse_requirements(filename):
 
 setup(
     name='Flask-Ask',
-    version='0.9.7',
-    url='https://github.com/johnwheeler/flask-ask',
+    version='0.9.8',
+    url='https://github.com/botmakerdvd/flask-ask',
     license='Apache 2.0',
-    author='John Wheeler',
-    author_email='john@johnwheeler.org',
+    author='David Esteban',
+    author_email='davidestebanmunoz@gmail.com',
     description='Rapid Alexa Skills Kit Development for Amazon Echo Devices in Python',
     long_description=__doc__,
     packages=['flask_ask'],

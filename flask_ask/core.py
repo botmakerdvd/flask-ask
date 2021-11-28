@@ -700,7 +700,7 @@ class Ask(object):
             # load certificate - this verifies a the certificate url and format under the hood
             cert = verifier.load_certificate(cert_url)
             # verify signature
-            verifier.verify_signature(cert, signature, raw_body)
+            valid = verifier.verify_signature(cert, signature, raw_body)
 
             # verify timestamp
             raw_timestamp = alexa_request_payload.get('request', {}).get('timestamp')
@@ -718,7 +718,7 @@ class Ask(object):
             if self.ask_application_id is not None:
                 verifier.verify_application_id(application_id, self.ask_application_id)
 
-        return alexa_request_payload
+        return alexa_request_payload, valid
 
     @staticmethod
     def _parse_timestamp(timestamp):
@@ -764,7 +764,9 @@ class Ask(object):
         return {}
 
     def _flask_view_func(self, *args, **kwargs):
-        ask_payload = self._alexa_request(verify=self.ask_verify_requests)
+        ask_payload, valid = self._alexa_request(verify=self.ask_verify_requests)
+        if ( valid == 1 ):
+            return "", 400
         dbgdump(ask_payload)
         request_body = models._Field(ask_payload)
 

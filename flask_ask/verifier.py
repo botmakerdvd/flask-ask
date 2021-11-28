@@ -25,10 +25,13 @@ def load_certificate(cert_url):
 
 def verify_signature(cert, signature, signed_data):
     try:
+        valid=0
         signature = base64.b64decode(signature)
         crypto.verify(cert, signature, signed_data, 'sha1')
+        return valid
     except crypto.Error as e:
-        raise VerificationError(e)
+        valid=1
+        return valid
 
 
 def verify_timestamp(timestamp):
