@@ -196,7 +196,10 @@ class _Response(object):
 
         return json.dumps(response_wrapper, **kw)
 
-
+class videoplay(_Response):
+    def __init__(self, speech):
+        super(statement, self).__init__(speech)
+    
 class statement(_Response):
 
     def __init__(self, speech):
