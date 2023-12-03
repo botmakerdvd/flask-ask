@@ -13,7 +13,7 @@ def parse_requirements(filename):
 
 setup(
     name='Flask-Ask',
-    version='0.9.9',
+    version='1.0.0',
     url='https://github.com/botmakerdvd/flask-ask',
     license='Apache 2.0',
     author='David Esteban',
