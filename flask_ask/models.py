@@ -200,6 +200,7 @@ class videoplay(_Response):
     
     def __init__(self, speech):
         super(statement, self).__init__(speech)
+        self._response['shouldEndSession'] = False
     
 class statement(_Response):
 
