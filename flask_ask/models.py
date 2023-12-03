@@ -122,6 +122,8 @@ class _Response(object):
                 }
             }
         ]
+        self._response['directives'] = directive
+        return self
     def display_render(self, template=None, title=None, backButton='HIDDEN', token=None, background_image_url=None, image=None, text=None, hintText=None):
         directive = [
             {
