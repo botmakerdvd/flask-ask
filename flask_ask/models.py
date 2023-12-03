@@ -108,7 +108,20 @@ class _Response(object):
             directive.append(hint)
         self._response['directives'] = directive
         return self
-
+    def video(self,url=None,title="videotitle"):
+        directive = [
+            {
+                "type": "VideoApp.Launch",
+                "version": "1.0",
+                "videoItem": {
+                    "source": url,
+                    "metadata": {
+                      "title": title,
+                      "subtitle": 'streaming video'
+                    }
+                }
+            }
+        ]
     def display_render(self, template=None, title=None, backButton='HIDDEN', token=None, background_image_url=None, image=None, text=None, hintText=None):
         directive = [
             {
