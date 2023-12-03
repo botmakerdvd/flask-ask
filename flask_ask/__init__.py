@@ -20,6 +20,7 @@ from .models import (
     question,
     statement,
     audio,
+    videoplay,
     delegate,
     elicit_slot,
     confirm_slot,
